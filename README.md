@@ -1,2 +1,2 @@
 # MachineLearningProjects
-Projects created for a class I took on Machine Learning
+Projects created typically relating to Data Science and Machine Learning
