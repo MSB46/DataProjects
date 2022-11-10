@@ -1,5 +1,5 @@
 # Smart Device Wellness Case Study
-## Last updated: 11/9/22
+## Last updated: 11/10/22
 
 The purpose of this case study is to gain insight on any patterns based on recorded sleep patterns and physical activity of recorded participants.
 Please note that the data used is based on data collected from 30 participants within a month.
