@@ -1,4 +1,4 @@
-# Smart Device Wellness Case Study
+# Bellabeat Wellness Smart Device Case Study
 ## Last updated: 11/12/22
 
 The purpose of this case study is to gain insight on any patterns based on recorded sleep patterns and physical activity of recorded participants.
