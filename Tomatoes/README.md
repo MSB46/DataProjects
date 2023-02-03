@@ -111,25 +111,45 @@ Upon creating a .csv file of my newly collected data, a lot of things still need
 ## Exploratory Data Analysis
 At this point, the data is ready is be visualized using tools like matplotlib and seaborn. More feature engineering will also be done based on observed patterns.
 
+<div style="width:60%; height:30%">
 ![Metacritic and Votescore by MPAA Rating](graphs/vote_meta_by_rating.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Metacritic and Votescore by Era Time Period](graphs/vote_meta_by_era.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Score by MPAA Rating](graphs/score_rating_by_genre.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Story Word Cloud](graphs/wordcloud.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Genre Count](graphs/genre_count.png)
+</div>
 
-![Genre Gross Budget](avg_gross_budget_by_genre.png)
+<div style="width:60%; height:30%">
+![Genre Gross Budget](graphs/avg_gross_budget_by_genre.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Score by Country](graphs/score_average_by_country.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Metacritc by Country](graphs/metacritic_by_company.png)
+</div>
 
+<div style="width:60%; height:30%">
 ![Director Activity](graphs/frequent_directors.png)
+</div>
 
-![Box Office Over Time](box_office_costs_profits.png)
+<div style="width:60%; height:30%">
+![Box Office Over Time](graphs/box_office_costs_profits.png)
+</div>
 
 ---
 ## Data Modeling
