@@ -111,45 +111,26 @@ Upon creating a .csv file of my newly collected data, a lot of things still need
 ## Exploratory Data Analysis
 At this point, the data is ready is be visualized using tools like matplotlib and seaborn. More feature engineering will also be done based on observed patterns.
 
-<div style="width:60%; height:30%">
-![Metacritic and Votescore by MPAA Rating](graphs/vote_meta_by_rating.png)
-</div>
+<img src="graphs/vote_meta_by_rating.png" alt="Metacritic and Votescore by MPAA Rating" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Metacritic and Votescore by Era Time Period](graphs/vote_meta_by_era.png)
-</div>
+<img src="graphs/vote_meta_by_era.png" alt="Metacritic and Votescore by Era Time Period" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Score by MPAA Rating](graphs/score_rating_by_genre.png)
-</div>
+<img src="graphs/score_rating_by_genre.png" alt="Score by MPAA Rating" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Story Word Cloud](graphs/wordcloud.png)
-</div>
+<img src="graphs/story_wordcloud.png" alt="Story Word Cloud" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Genre Count](graphs/genre_count.png)
-</div>
+<img src="graphs/genre_count.png" alt="Genre Count" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Genre Gross Budget](graphs/avg_gross_budget_by_genre.png)
-</div>
+<img src="graphs/avg_gross_budget_by_genre.png" alt="Genre Gross Budget" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Score by Country](graphs/score_average_by_country.png)
-</div>
+<img src="graphs/score_average_by_country.png" alt="Score by Country" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Metacritc by Country](graphs/metacritic_by_company.png)
-</div>
+<img src="graphs/metacritic_by_company.png" alt="Metacritc by Country" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Director Activity](graphs/frequent_directors.png)
-</div>
+<img src="graphs/frequent_directors.png" alt="Director Activity" width=60% height=30%>
 
-<div style="width:60%; height:30%">
-![Box Office Over Time](graphs/box_office_costs_profits.png)
-</div>
+<img src="graphs/box_office_costs_profits.png" alt="Box Office Over Time" width=60% height=30%>
+
 
 ---
 ## Data Modeling
