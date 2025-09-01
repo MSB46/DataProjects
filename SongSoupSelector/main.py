@@ -31,6 +31,7 @@ except FileNotFoundError:
               "use_full": 0,
               "client_id": '',
               "client_sec": '',
+              "same_decade": 1,
               }
     with open('config.json', 'w') as f:
         json.dump(config, f)
@@ -77,13 +78,15 @@ def add_item(*args):
             df.index = df['id']
             df.drop('id', axis=1, inplace=True)
 
+            df.sort_values(by=['primary_artist', 'release_date', 'name'], inplace=True)
+
         if under_item_limit():
             if int(radio_val.get()) == 1:
                 messagebox.showinfo(title="Instruction",
                                     message="Find the song to be added and double click on its corresponding row number")
                 frame = Toplevel(window.master)
                 table = Table(frame, dataframe=df[
-                    df['name'].str.contains(entry_text, case=False)][['name', 'primary_artist', 'secondary_artists']], showtoolbar=False, showstatusbar=True)
+                    df['name'].str.contains(entry_text, case=False)][['release_date', 'name', 'primary_artist', 'secondary_artists']], showtoolbar=False, showstatusbar=True)
                 table.show()
                 table.rowheader.bind('<Double-Button-1>', handle_left_click_df)
 
@@ -93,7 +96,7 @@ def add_item(*args):
                 frame = Toplevel(window.master)
                 table = Table(frame, dataframe=df[
                     (df['primary_artist'].str.contains(entry_text, case=False)) |
-                    (df['secondary_artists'].str.contains(entry_text, case=False))][['name', 'primary_artist', 'secondary_artists']], showtoolbar=False, showstatusbar=True)
+                    (df['secondary_artists'].str.contains(entry_text, case=False))][['release_date','name', 'primary_artist', 'secondary_artists']], showtoolbar=False, showstatusbar=True)
                 table.show()
                 table.rowheader.bind('<Double-Button-1>', handle_left_click_df)
 
@@ -214,7 +217,7 @@ def open_credits():
     credits_window.title("Settings")
     credits_window.config()
 
-    label_creds1 = Label(credits_window, text="Code by Michael Saulon B")
+    label_creds1 = Label(credits_window, text="Developed by Michael Saulon B")
     label_creds1.pack(pady=5, padx=5)
 
     label_creds2 = Label(credits_window, text="github.com/MSB46")
@@ -255,20 +258,25 @@ def open_settings_window():
     check4.grid(row=3, column=2, columnspan=1)
     tip4 = Hovertip(check4, 'Allow an larger selection of songs to choose from, including songs without a recorded genre. May also lead to slower performance.\nLeave unchecked if unsure')
 
+    check_same_decade = StringVar(settings_window, value=config['same_decade'])
+    check5 = Checkbutton(settings_window, text="Recommend within decade", variable=check_same_decade, onvalue=1, offvalue=0)
+    check5.grid(row=4, column=1, columnspan=2)
+    tip5 = Hovertip(check5,'Only include songs released in the same decades as provided songs.')
+
     label_cid = Label(settings_window, text="Client ID:")
-    label_cid.grid(row=4, column=1, pady=5, padx=5)
+    label_cid.grid(row=5, column=1, pady=5, padx=5)
     text_cid = StringVar()
     text_cid.set(config['client_id'])
     entry_cid = Entry(settings_window, textvariable=text_cid)
-    entry_cid.grid(row=4, column=2, columnspan=2, padx=5)
+    entry_cid.grid(row=5, column=2, columnspan=2, padx=5)
     tip_cid = Hovertip(entry_num_songs, 'Client ID of application used for adding songs to Spotify account')
 
     label_csec = Label(settings_window, text="Client Secret:")
-    label_csec.grid(row=5, column=1, pady=5, padx=5)
+    label_csec.grid(row=6, column=1, pady=5, padx=5)
     text_csec = StringVar()
     text_csec.set(config['client_sec'])
     entry_csec = Entry(settings_window, textvariable=text_csec)
-    entry_csec.grid(row=5, column=2, columnspan=2, padx=5)
+    entry_csec.grid(row=6, column=2, columnspan=2, padx=5)
     tip_csec = Hovertip(entry_num_songs, 'Client Secret ID of application used for adding songs to Spotify account')
 
     def on_closing():
@@ -290,15 +298,16 @@ def open_settings_window():
         config['cv_or_tdf'] = int(check_tfidf.get())
         config['simplified'] = int(check_simple.get())
         config['use_full'] = int(check_use_full.get())
+        config['same_decade'] = int(check_same_decade.get())
 
         # write it back to the file
         with open('config.json', 'w') as f:
             json.dump(config, f)
 
         if config['use_full']:
-            df = pd.read_csv("datasets/dataset_final.csv", low_memory=True)
+            df = pd.read_csv("datasets/dataset_ultimate.csv", low_memory=True)
         else:
-            df = pd.read_csv("datasets/dataset_final_reduced.csv", low_memory=True)
+            df = pd.read_csv("datasets/dataset_ultimate_reduced.csv", low_memory=True)
 
         df.fillna("", inplace=True)
         df.index = df['id']
